@@ -1,14 +1,13 @@
 import React from 'react';
 
 const Todo = props => {
-  const handleClick = () => {
-    console.log('handle click');
-  };
   return (
     <li>
       <div>
-        <h3>{props.item}</h3>
-        <input type='checkbox' onClick={() => handleClick()} />
+        <h3>
+          {props.item} {!props.completed && 'not'} completed
+        </h3>
+        <input type='checkbox' defaultChecked={props.completed} onClick={e => props.updateTodoStatus(e, props.id)} />
       </div>
     </li>
   );
