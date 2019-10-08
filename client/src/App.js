@@ -1,10 +1,13 @@
 import React from 'react';
+import TodoContainer from './components/TodosContainer';
 
 function App() {
   return (
     <>
       <header></header>
-      <main></main>
+      <main>
+        <TodoContainer />
+      </main>
       <footer></footer>
     </>
   );
