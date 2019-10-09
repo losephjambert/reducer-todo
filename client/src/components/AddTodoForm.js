@@ -23,7 +23,7 @@ const AddTodoForm = ({ addTodo }) => {
     setTodo(initialTodo);
   };
 
-  const isEnabled = todo.item.length > 0 && todo.dueDate.length > 0;
+  const isEnabled = todo.item.length > 0;
   return (
     <form onSubmit={e => handleSubmit(e, todo)}>
       <div>
@@ -31,7 +31,7 @@ const AddTodoForm = ({ addTodo }) => {
         <input type='text' name='item' value={todo.item} onChange={handleChange} />
       </div>
       <div>
-        <label htmlFor='start'>When do you want to finish it?</label>
+        <label htmlFor='start'>Add a due date if your task is time sensitive:</label>
         <input
           type='date'
           id='start'
@@ -42,7 +42,6 @@ const AddTodoForm = ({ addTodo }) => {
           onChange={handleChange}
         />
       </div>
-      {isEnabled ? 'true' : 'false'}
       <input type='submit' value='Add Todo' disabled={!isEnabled} />
     </form>
   );
