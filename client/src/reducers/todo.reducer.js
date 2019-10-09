@@ -9,6 +9,7 @@ export const initialTodoState = [
     id: 3892987589,
     completedAt: null,
     createdAt: Date.now(),
+    dueDate: null,
   },
 ];
 
