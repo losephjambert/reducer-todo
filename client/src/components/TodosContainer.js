@@ -30,7 +30,6 @@ const TodosContainer = () => {
   };
 
   const clearCompletedTodos = () => {
-    console.log('clear completed todos');
     dispatch({
       type: DELETE_COMPLETED,
     });
