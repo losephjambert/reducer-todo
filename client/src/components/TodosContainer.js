@@ -16,15 +16,17 @@ const TodosContainer = () => {
     dispatch({ type: COMPLETE_TODO, payload: id });
   };
 
-  const addTodo = item => {
+  const addTodo = ({ item, dueDate }) => {
+    console.log('TodosContainer.js: addTodo: ', { item, dueDate: new Date(dueDate) });
     dispatch({
       type: CREATE_TODO,
       payload: {
-        item,
         completed: false,
         completedAt: null,
         createdAt: Date.now(),
         id: Date.now(),
+        item,
+        dueDate: new Date(dueDate),
       },
     });
   };

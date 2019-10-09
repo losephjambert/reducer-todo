@@ -18,6 +18,7 @@ export const initialTodoState = [
 export const todoReducer = (todos, action) => {
   switch (action.type) {
     case CREATE_TODO:
+      console.log('create todo', action.payload);
       return [...todos, action.payload];
     case COMPLETE_TODO:
       return todos.map(todo => {
