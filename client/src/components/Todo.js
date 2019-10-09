@@ -20,8 +20,8 @@ const Todo = props => {
   return (
     <StyledTodo>
       <div>
-        <h4 className={`${props.completed ? '__completed' : ''}`}></h4>
-        {props.item} {props.completedAt && <p>completed on {completedDate}</p>}{' '}
+        <h4 className={`${props.completed ? '__completed' : ''}`}>{props.item}</h4>
+        {props.completedAt && <p>completed on {completedDate}</p>}{' '}
         {props.dueDate && overDue && <p>This todo is over due!!!</p>}
         <p>Created on {createdDate}</p>
         {props.dueDate && <p>Due: {formattedDueDate}</p>}
