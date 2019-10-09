@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import styled from 'styled-components';
 //components
 import Todo from './Todo';
 import AddTodoForm from './AddTodoForm';
@@ -8,7 +9,8 @@ import { initialTodoState, todoReducer } from '../reducers/todo.reducer';
 //actions
 import * as todoActions from '../actions/todo.actions';
 const { CREATE_TODO, COMPLETE_TODO, DELETE_COMPLETED } = todoActions;
-
+// styled components
+const StyledTodoList = styled.ul``;
 const TodosContainer = () => {
   const [todos, dispatch] = useReducer(todoReducer, initialTodoState);
 
@@ -32,11 +34,11 @@ const TodosContainer = () => {
   return (
     <section>
       <h2>Reducer Todos</h2>
-      <ul>
+      <StyledTodoList>
         {todos.map(todo => (
           <Todo key={todo.id} {...todo} updateTodoStatus={updateTodoStatus} />
         ))}
-      </ul>
+      </StyledTodoList>
       <AddTodoForm addTodo={addTodo} />
       <ClearCompletedTodosForm clearCompletedTodos={clearCompletedTodos} />
     </section>

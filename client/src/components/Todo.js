@@ -2,9 +2,7 @@ import React from 'react';
 import { format, isAfter } from 'date-fns';
 import styled from 'styled-components';
 
-const StyledTodo = styled.li`
-  list-style: none;
-`;
+const StyledTodo = styled.li``;
 
 const Todo = props => {
   const createdDate = format(props.createdAt, 'E MMM do, y');
