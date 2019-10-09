@@ -2,7 +2,14 @@ import React from 'react';
 import { format, isAfter } from 'date-fns';
 import styled from 'styled-components';
 
-const StyledTodo = styled.li``;
+const StyledTodo = styled.li`
+  box-shadow: 0 0 0 0 black;
+  border-radius: 6px;
+  padding: 10px;
+  &:hover {
+    box-shadow: 0 0 3px 0 black;
+  }
+`;
 
 const Todo = props => {
   const createdDate = format(props.createdAt, 'E MMM do, y');
@@ -13,13 +20,11 @@ const Todo = props => {
   return (
     <StyledTodo>
       <div>
-        <h3 className={`${props.completed ? '__completed' : ''}`}>
-          {props.item} {props.completedAt && <span>completed on {completedDate}</span>}{' '}
-          {props.dueDate && overDue && <span>This todo is over due!!!</span>}
-        </h3>
+        <h4 className={`${props.completed ? '__completed' : ''}`}></h4>
+        {props.item} {props.completedAt && <p>completed on {completedDate}</p>}{' '}
+        {props.dueDate && overDue && <p>This todo is over due!!!</p>}
         <p>Created on {createdDate}</p>
         {props.dueDate && <p>Due: {formattedDueDate}</p>}
-
         <div>
           <label htmlFor='todoItem'>Mark Completed</label>
           <input
