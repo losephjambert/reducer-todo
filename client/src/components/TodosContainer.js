@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import { format, getDay } from 'date-fns';
 //components
 import Todo from './Todo';
 import AddTodoForm from './AddTodoForm';
@@ -17,6 +18,8 @@ const TodosContainer = () => {
   };
 
   const addTodo = item => {
+    const date = new Date();
+    console.log(format(date, 'E MMM do, y'));
     dispatch({
       type: CREATE_TODO,
       payload: {
