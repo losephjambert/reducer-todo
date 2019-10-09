@@ -12,22 +12,21 @@ export const initialTodoState = [
 
 // State is the data that we want to update
 // action is an object that contains a type and the data we want to use to update our state
-export const todoReducer = (state, action) => {
-  console.log(state);
+export const todoReducer = (todos, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return [...state, action.payload];
+      return [...todos, action.payload];
     case COMPLETE_TODO:
-      return state.map(t => {
-        if (t.id === action.payload) {
+      return todos.map(todo => {
+        if (todo.id === action.payload) {
           return {
-            ...t,
-            completed: !t.completed,
+            ...todo,
+            completed: !todo.completed,
           };
         }
-        return t;
+        return todo;
       });
     default:
-      return state;
+      return todos;
   }
 };
