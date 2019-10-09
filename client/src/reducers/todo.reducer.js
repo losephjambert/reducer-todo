@@ -8,6 +8,7 @@ export const initialTodoState = [
     completed: false,
     id: 3892987589,
     completedAt: null,
+    createdAt: Date.now(),
   },
 ];
 
@@ -23,6 +24,7 @@ export const todoReducer = (todos, action) => {
           return {
             ...todo,
             completed: !todo.completed,
+            completedAt: !todo.completed ? Date.now() : null,
           };
         }
         return todo;

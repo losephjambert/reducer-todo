@@ -2,12 +2,16 @@ import React from 'react';
 import { format } from 'date-fns';
 
 const Todo = props => {
-  const date = format(props.createdAt, 'E MMM do, y');
+  const createdDate = format(props.createdAt, 'E MMM do, y');
+  const completedDate = props.completedAt && format(props.completedAt, 'E MMM do, y');
   return (
     <li>
       <div>
-        <h3 className={`${props.completed ? '__completed' : ''}`}>{props.item}</h3>
-        <p>Created on {date}</p>
+        <h3 className={`${props.completed ? '__completed' : ''}`}>
+          {props.item} {props.completedAt && <span>completed on {completedDate}</span>}
+        </h3>
+        <p>Created on {createdDate}</p>
+
         <div>
           <label htmlFor='todoItem'>Mark Completed</label>
           <input
