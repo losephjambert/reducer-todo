@@ -1,12 +1,13 @@
 import React, { useReducer } from 'react';
 //components
 import Todo from './Todo';
-import TodoForm from './TodoForm';
+import AddTodoForm from './AddTodoForm';
+import ClearCompletedTodosForm from './ClearCompletedTodosForm';
 // reducers
 import { initialTodoState, todoReducer } from '../reducers/todo.reducer';
 //actions
 import * as todoActions from '../actions/todo.actions';
-const { ADD_TODO, COMPLETE_TODO } = todoActions;
+const { CREATE_TODO, COMPLETE_TODO, DELETE_COMPLETED } = todoActions;
 
 const TodosContainer = () => {
   const [todos, dispatch] = useReducer(todoReducer, initialTodoState);
@@ -17,12 +18,19 @@ const TodosContainer = () => {
 
   const addTodo = item => {
     dispatch({
-      type: ADD_TODO,
+      type: CREATE_TODO,
       payload: {
         item,
         completed: false,
         id: Date.now(),
       },
+    });
+  };
+
+  const clearCompletedTodos = () => {
+    console.log('clear completed todos');
+    dispatch({
+      type: DELETE_COMPLETED,
     });
   };
 
@@ -34,7 +42,8 @@ const TodosContainer = () => {
           <Todo key={todo.id} {...todo} updateTodoStatus={updateTodoStatus} />
         ))}
       </ul>
-      <TodoForm addTodo={addTodo} />
+      <AddTodoForm addTodo={addTodo} />
+      <ClearCompletedTodosForm clearCompletedTodos={clearCompletedTodos} />
     </section>
   );
 };

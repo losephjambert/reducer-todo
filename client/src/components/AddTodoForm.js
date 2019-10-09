@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TodoForm = props => {
+const AddTodoForm = props => {
   const [todoTitle, setTodoTitle] = useState('');
   const handleChange = e => {
     setTodoTitle(e.target.value);
@@ -18,4 +18,4 @@ const TodoForm = props => {
   );
 };
 
-export default TodoForm;
+export default AddTodoForm;

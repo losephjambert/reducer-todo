@@ -1,6 +1,6 @@
 //actions
 import * as todoActions from '../actions/todo.actions';
-const { ADD_TODO, COMPLETE_TODO } = todoActions;
+const { CREATE_TODO, COMPLETE_TODO, DELETE_COMPLETED } = todoActions;
 // this is the initial state we use to seed our todo state in our application
 export const initialTodoState = [
   {
@@ -14,7 +14,7 @@ export const initialTodoState = [
 // action is an object that contains a type and the data we want to use to update our state
 export const todoReducer = (todos, action) => {
   switch (action.type) {
-    case ADD_TODO:
+    case CREATE_TODO:
       return [...todos, action.payload];
     case COMPLETE_TODO:
       return todos.map(todo => {
@@ -26,6 +26,8 @@ export const todoReducer = (todos, action) => {
         }
         return todo;
       });
+    case DELETE_COMPLETED:
+      return todos.filter(todo => !todo.completed);
     default:
       return todos;
   }
