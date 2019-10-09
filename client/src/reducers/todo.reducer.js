@@ -31,7 +31,6 @@ const createNewTodo = (item, dueDate) => {
 export const todoReducer = (todos, action) => {
   switch (action.type) {
     case CREATE_TODO:
-      console.log('create todo', action.payload);
       const todo = createNewTodo(action.payload.item, action.payload.dueDate);
       return [...todos, todo];
     case COMPLETE_TODO:

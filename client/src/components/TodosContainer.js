@@ -17,7 +17,6 @@ const TodosContainer = () => {
   };
 
   const addTodo = todo => {
-    console.log('TodosContainer.js: addTodo: ', todo);
     dispatch({
       type: CREATE_TODO,
       payload: todo,
