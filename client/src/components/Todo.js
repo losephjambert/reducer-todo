@@ -1,5 +1,10 @@
 import React from 'react';
 import { format, isAfter } from 'date-fns';
+import styled from 'styled-components';
+
+const StyledTodo = styled.li`
+  list-style: none;
+`;
 
 const Todo = props => {
   const createdDate = format(props.createdAt, 'E MMM do, y');
@@ -8,7 +13,7 @@ const Todo = props => {
   const overDue = props.dueDate && isAfter(new Date(), props.dueDate);
 
   return (
-    <li>
+    <StyledTodo>
       <div>
         <h3 className={`${props.completed ? '__completed' : ''}`}>
           {props.item} {props.completedAt && <span>completed on {completedDate}</span>}{' '}
@@ -28,7 +33,7 @@ const Todo = props => {
           />
         </div>
       </div>
-    </li>
+    </StyledTodo>
   );
 };
 
