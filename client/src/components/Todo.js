@@ -26,11 +26,11 @@ const Todo = props => {
         <p>Created on {createdDate}</p>
         {props.dueDate && <p>Due: {formattedDueDate}</p>}
         <div>
-          <label htmlFor='todoItem'>Mark Completed</label>
+          <label htmlFor={props.item}>Mark Completed</label>
           <input
             type='checkbox'
-            id='todoItem'
-            name='todoItem'
+            id={props.item}
+            name={props.item}
             defaultChecked={props.completed}
             onClick={e => props.updateTodoStatus(e, props.id)}
           />
