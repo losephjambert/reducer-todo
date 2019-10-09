@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 //components
 import Todo from './Todo';
+import TodoForm from './TodoForm';
 // reducers
 import { initialTodoState, todoReducer } from '../reducers/todo.reducer';
 //actions
@@ -14,6 +15,10 @@ const TodosContainer = () => {
     dispatch({ type: COMPLETE_TODO, payload: id });
   };
 
+  const addTodo = item => {
+    console.log(item);
+  };
+
   return (
     <section>
       <h2>Reducer Todos</h2>
@@ -22,6 +27,7 @@ const TodosContainer = () => {
           <Todo key={todo.id} {...todo} updateTodoStatus={updateTodoStatus} />
         ))}
       </ul>
+      <TodoForm addTodo={addTodo} />
     </section>
   );
 };
