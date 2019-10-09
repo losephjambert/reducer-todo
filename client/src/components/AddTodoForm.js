@@ -13,7 +13,7 @@ const AddTodoForm = props => {
   return (
     <form onSubmit={e => handleSubmit(e, todoTitle)}>
       <input type='text' value={todoTitle} onChange={handleChange} />
-      <input type='submit' value='Add Todo' />
+      <input type='submit' value='Add Todo' disabled={todoTitle.length > 0 ? false : true} />
     </form>
   );
 };
