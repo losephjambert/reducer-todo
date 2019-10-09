@@ -16,7 +16,14 @@ const TodosContainer = () => {
   };
 
   const addTodo = item => {
-    console.log(item);
+    dispatch({
+      type: ADD_TODO,
+      payload: {
+        item,
+        completed: false,
+        id: Date.now(),
+      },
+    });
   };
 
   return (

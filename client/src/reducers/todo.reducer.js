@@ -16,7 +16,7 @@ export const todoReducer = (state, action) => {
   console.log(state);
   switch (action.type) {
     case ADD_TODO:
-      return [...state];
+      return [...state, action.payload];
     case COMPLETE_TODO:
       return state.map(t => {
         if (t.id === action.payload) {
